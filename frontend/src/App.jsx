@@ -1,7 +1,9 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { LayoutDashboard, Package, Settings, LogOut, Search, Plus, Bell, Boxes, TrendingUp, AlertTriangle, DollarSign, Pencil, Trash2, X, ArrowUpRight, Menu, Warehouse, CheckCircle2 } from 'lucide-react'
 
-const API = (import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000') + '/api'const money = n => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n || 0)
+const API = (import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000') + '/api'
+
+const money = n => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n || 0)
 async function request(path, options = {}, token = '') {
   const res = await fetch(API + path, { ...options, headers: { 'Content-Type': 'application/json', ...(token ? { Authorization: `Bearer ${token}` } : {}), ...(options.headers || {}) } })
   const data = await res.json().catch(() => ({}))
