@@ -10,13 +10,10 @@ from .security import hash_password, verify_password, create_token, current_user
 Base.metadata.create_all(bind=engine)
 app = FastAPI(title="StockFlow API", version="1.0.0", description="Multi-tenant SaaS inventory management")
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
-    allow_credentials=True, allow_methods=["*"], allow_headers=["*"]
-)
-
-@app.get("/")
+allow_origins=[
+    "http://localhost:5173",
+    "https://YOUR-FRONTEND.vercel.app"
+],@app.get("/")
 def root():
     return {"message": "Welcome to StockFlow API", "status": "running"}
 

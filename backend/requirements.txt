@@ -5,3 +5,4 @@ python-jose[cryptography]
 pwdlib[argon2]
 python-multipart
 pydantic[email]
+psycopg2-binary
