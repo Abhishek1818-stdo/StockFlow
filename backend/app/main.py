@@ -13,7 +13,8 @@ app = FastAPI(title="StockFlow API", version="1.0.0", description="Multi-tenant 
 allow_origins=[
     "http://localhost:5173",
     "https://YOUR-FRONTEND.vercel.app"
-],@app.get("/")
+]
+@app.get("/")
 def root():
     return {"message": "Welcome to StockFlow API", "status": "running"}
 
